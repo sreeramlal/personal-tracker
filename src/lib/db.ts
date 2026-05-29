@@ -11,17 +11,14 @@ interface MongooseCache {
   promise: Promise<typeof mongoose> | null;
 }
 
-// Global variable definition for TypeScript to prevent reuse errors in hot-reloading
 declare global {
   // eslint-disable-next-line no-var
   var mongooseCache: MongooseCache | undefined;
 }
 
-let cached = global.mongooseCache;
-
-if (!cached) {
-  cached = global.mongooseCache = { conn: null, promise: null };
-}
+// By declaring cached as a const and initializing it inline, 
+// TypeScript knows the type is guaranteed to be defined (MongooseCache).
+const cached: MongooseCache = global.mongooseCache || (global.mongooseCache = { conn: null, promise: null });
 
 async function dbConnect() {
   if (cached.conn) {
