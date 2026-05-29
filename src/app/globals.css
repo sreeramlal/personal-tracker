@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ocean-dark: #030a16;
+  --color-ocean-medium: #0b1a30;
+  --color-ocean-light: #152b4d;
+  --color-aqua-primary: #00f0ff;
+  --color-aqua-secondary: #00d2ff;
+  --color-aqua-accent: #0088ff;
+  --color-card-border: rgba(0, 240, 255, 0.15);
+}
+
+:root {
+  --background: #030a16;
+  --foreground: #f0f6fc;
+}
+
+body {
+  background: var(--background);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 136, 255, 0.08) 0%, transparent 50%);
+  color: var(--foreground);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(11, 26, 48, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 3, 10, 0.5);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(15, 36, 68, 0.6);
+  border-color: rgba(0, 240, 255, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.12);
+}
+
+/* Wave Animations */
+@keyframes wave-left-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes wave-right-to-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-wave-fast {
+  animation: wave-left-to-right 12s linear infinite;
+}
+
+.animate-wave-slow {
+  animation: wave-right-to-left 18s linear infinite;
+}
+
+/* Floating Bubbles Animation */
+@keyframes bubble-up {
+  0% {
+    transform: translateY(110%) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-10%) scale(1.3);
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6) 0%, rgba(0, 240, 255, 0.2) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubble-up 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030a16;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.3);
+}
+
+/* Pulse animation for active target state */
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.5), inset 0 0 25px rgba(0, 240, 255, 0.25);
+  }
+}
+
+.glow-active {
+  animation: border-glow 3s infinite;
+}
+
+/* Slow heartbeat/breathing pulse animation */
+@keyframes heartbeat-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-heartbeat-slow {
+  animation: heartbeat-pulse 4s ease-in-out infinite;
+}
+
+.animate-heartbeat-fast {
+  animation: heartbeat-pulse 1.5s ease-in-out infinite;
+}
+
+
+/* Dynamic crossfade scale keyframe for image swap transitions */
+@keyframes goku-swap {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-goku-swap {
+  animation: goku-swap 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
