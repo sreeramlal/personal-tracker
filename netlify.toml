@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Netlify automatically detects Next.js, but defining netlify.toml 
+# guarantees the build command and folder are aligned.

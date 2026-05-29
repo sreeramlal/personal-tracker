@@ -451,11 +451,14 @@ export default function Home() {
               </div>
 
               {progressPercent >= 100 && (
-                <div className="absolute inset-0 bg-aqua-primary/5 z-20 flex items-center justify-center pointer-events-none animate-pulse">
-                  <div className="px-4 py-2 rounded-full bg-ocean-dark/80 border border-aqua-primary text-aqua-primary text-xs font-bold tracking-widest flex items-center gap-1 shadow-lg shadow-aqua-primary/25">
-                    <Award className="w-4 h-4" /> DAILY GOAL ACHIEVED!
+                <>
+                  <div className="absolute inset-0 bg-aqua-primary/5 z-20 pointer-events-none animate-pulse" />
+                  <div className="absolute top-10 left-0 right-0 z-22 flex justify-center pointer-events-none animate-pulse">
+                    <div className="px-3.5 py-1.5 rounded-full bg-ocean-dark/90 border border-aqua-primary text-aqua-primary text-[10px] font-bold tracking-widest flex items-center gap-1 shadow-lg shadow-aqua-primary/25">
+                      <Award className="w-3.5 h-3.5" /> DAILY GOAL ACHIEVED!
+                    </div>
                   </div>
-                </div>
+                </>
               )}
 
               <div 
